@@ -36,8 +36,7 @@ function removeContact(contactId) {
       (contact) => String(contact.id) !== contactId
     );
     changeContacts(contactsPath, filteredContacts);
-    console.log(`The contact with id${contactId} was deleted!`);
-    console.table(filteredContacts);
+    console.log(`The contact with id: ${contactId} was deleted!`);
   });
 }
 
@@ -52,7 +51,7 @@ function addContact(name, email, phone) {
     const newContacts = [...contacts, newContact];
 
     changeContacts(contactsPath, newContacts);
-    console.table(newContacts);
+
     console.log(`The contact ${newContact.name} was sucсessfully added!`);
   });
 }
