@@ -2,7 +2,13 @@ const { Command } = require("commander");
 const program = new Command();
 const contacts = require("./contacts/index");
 
-console.log(contacts);
+// const yargs = require("yargs");
+// const { hideBin } = require("yargs/helpers");
+
+// const arr = hideBin(process.argv);
+// const { argv } = yargs(arr);
+
+// console.log(arr);
 
 program
   .option("-a, --action <type>", "choose action")
@@ -23,7 +29,8 @@ const invokeAction = async ({ action, id, name, email, phone }) => {
       break;
 
     case "get":
-      const contact = await contacts.getContactById(id);
+      const contactId = String(id);
+      const contact = await contacts.getContactById(contactId);
       console.log(contact);
       break;
 
